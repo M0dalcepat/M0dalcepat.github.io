@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#ffa500">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PINJAMAN SAYA</title>
+<style>
+img {
+            width: 350px; /* Sesuaikan dengan lebar yang Anda inginkan */
+            height: auto; /* Biarkan ketinggian menyesuaikan dengan lebar */
+            margin-top:-8px;
+            margin-left:-9px;
+        }
+
+  
+  
+  
+
+  
+  
+#gambar-atas {
+      margin-bottom: 20px;
+      padding: 0; /* Menghapus padding */
+    }
+
+    #gambar-atas img {
+      width: 100%; /* Menyesuaikan lebar gambar dengan lebar parent */
+      height: auto; /* Memastikan ketinggian menyesuaikan dengan lebar */
+      margin-top:0px;
+    }
+
+  .button {
+    display: inline-block;
+    padding: 20px 20px;
+    background-color: #ffa500;
+    color: #ccc;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+    font-weight: bold;
+    margin-top:-300px;
+  }
+
+  .icon-left,
+  .icon-right {
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .icon-left img,
+  .icon-right img {
+    width: 80px; /* Sesuaikan ukuran ikon di sini */
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .icon-left {
+    position: absolute;
+    left: 10px;
+    top: 60%;
+    transform: translateY(-50%);
+  }
+
+  .icon-right {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    transform: translateY(-50%);
+  }
+
+  .button-text {
+    position: relative;
+    z-index: 0;
+    margin-top:-20px;
+  }
+  
+  
+  .loading-icon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Mulai tersembunyi */
+  }
+</style>
+</head>
+<body>
+  <div style="text-align: center;">
+        <img src="https://i.ibb.co/3rRCQd6/Screenshot-20240505-124346-Pixel-Lab.jpg" alt="Foto">
+    </div>
+<div class="garis-bawa2h"></div>
+  <div id="gambar-atas">
+    <img src="https://i.ibb.co/Rh7RJZT/Screenshot-20240504-023706-Ada-Dana.jpg" alt="Gambar Atas">
+  </div>
+
+<button class="button" onclick="handleButtonClick()" disabled>
+  <span class="icon-left" onclick="redirectToLoanPage()">
+    <!-- Letakkan ikon di sini -->
+    <img src="https://i.ibb.co/fSNNpX4/1000004401-removebg-preview.png" alt="Icon Kiri">
+  </span>
+  <span class="button-text">Kredit Pinjaman</span>
+  <span class="icon-right" onclick="redirectToSelectionPage()">
+    <!-- Letakkan ikon di sini -->
+    <img src="https://i.ibb.co/Q9NqWQK/1000004368-removebg-preview.png" alt="Icon Kanan">
+  </span>
+</button>
+
+<script>
+  function redirectToLoanPage() {
+    // Ganti URL dengan halaman pinjaman yang sesuai
+    window.location.href = "pinjaman.html";
+  }
+
+  function redirectToSelectionPage() {
+    // Ganti URL dengan halaman pilihan yang sesuai
+    window.location.href = "pilihan.html";
+  }
+
+  function handleButtonClick() {
+    // Fungsi yang akan dijalankan saat tombol diklik
+    alert("Tombol diklik!");
+  }
+
+  function showLoading() {
+    var loadingIcon = document.getElementById('loading-icon');
+    loadingIcon.style.display = 'block'; // Menampilkan loading.gif
+
+    // Tunggu selama 4 detik sebelum menuju ke halaman berikutnya
+    setTimeout(function() {
+      // Sembunyikan loading.gif setelah 4 detik
+      loadingIcon.style.display = 'none';
+
+      // Ganti URL dengan halaman yang sesuai setelah loading selesai
+      // Contoh:
+      // window.location.href = 'halaman_baru.html';
+    }, 4000); // 4 detik
+  }
+</script>
+
+<div class="loading-icon">
+  <img src="https://raw.githubusercontent.com/Sainilah9/Sainilah9.github.io/main/hug.gif" alt="Loading...">
+</div>
+
+</body>
+</html>
