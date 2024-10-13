@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilihan Bank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Style untuk gambar di bagian atas halaman */
+        .header-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Style untuk kotak utama */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style untuk judul */
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Style untuk daftar bank */
+        .bank-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Style untuk setiap item bank */
+        .bank-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        /* Style untuk teks bank */
+        .bank-item span {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Style untuk panah */
+        .bank-item .arrow {
+            font-size: 18px;
+            color: #999;
+        }
+
+        /* Efek hover */
+        .bank-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Menghilangkan border pada item terakhir */
+        .bank-item:last-child {
+            border-bottom: none;
+        }
+  .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-top:-10px;
+        }
+
+        .back-button span {
+            margin-left: 5px; /* Menambahkan jarak sedikit antara tanda < dan teks Back */
+        }
+        
+            </style>
+</head>
+<body>
+  
+        <a href="pinjaman.html" class="back-button">
+        &lt;<span>Back</span>
+    </a><br>
+
+    <!-- Gambar di bagian atas halaman (di luar container) -->
+    <div class="header-image">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhnfpR3UmCmf2O0fv4m4lecv7QMVBTeWmzWpRWkhuvyCa4GEfHVbAoOp0PttiFTi30EmfxxOiogJDzxrTfoqMpnxIzAcrYgCocO4QIqzsKy1uuQ0GJfla4lI8DFXgImymuXYZYn6uNh2VVhg959XLyBEj3o2pUN2RT702RbBd_8oMhm-KSYBcocgPUwXK5g" alt="Gambar Header">
+    </div>
+
+    <!-- Kotak utama berisi daftar bank -->
+    <div class="container">
+
+        <!-- Judul Kartu Bank -->
+        <div class="title">Kartu bank</div>
+
+        <!-- Daftar Bank -->
+        <ul class="bank-list">
+            <li class="bank-item" onclick="window.location.href='bri.html'">
+                <span>Bank BCA</span>
+                <span class="arrow">></span>
+            </li>
+            <li class="bank-item" onclick="window.location.href='mandiri.html'">
+                <span>Bank BRI</span>
+                <span class="arrow">></span>
+            </li>
+            <li class="bank-item" onclick="window.location.href='bni.html'">
+                <span>Bank BNI</span>
+                <span class="arrow">></span>
+            </li>
+            <li class="bank-item" onclick="window.location.href='inaperdana.html'">
+                <span>Bank Ina Perdana</span>
+                <span class="arrow">></span>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
