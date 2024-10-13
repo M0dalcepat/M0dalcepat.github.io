@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Kartu Pinjaman</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .loan-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            width: 300px;
+            margin-left:-18px;
+        }
+
+        .loan-card img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .loan-card .status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffa500;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .loan-details {
+            margin-top: 60px;
+        }
+
+        .loan-details p {
+            margin: 5px 0;
+        }
+
+        .loan-details p span {
+            font-weight: bold;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .actions a {
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-extend {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-pay {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Kartu Pinjaman 1 -->
+    <div class="loan-card">
+        <img src="logo1.png" alt="Dana Flow Logo">
+        <div class="status">Belum Lunas</div>
+        <div class="loan-details">
+            <p>No Pinjaman <span>20241001182032UyYh</span></p>
+            <p>Jumlah Pinjaman <span>Rp 1.176.000</span></p>
+            <p>Tenor Pinjaman <span>7 Hari</span></p>
+            <p>Jumlah Yang harus dilunasi <span>Rp 2.100.000</span></p>
+        </div>
+        <div class="actions">
+            <a href="#" class="btn-extend">Saya Ingin Perpanjang</a>
+            <a href="pilihbankbayar.html" class="btn-pay">Melunasi</a>
+        </div>
+    </div>
+    
+        <div class="loan-card">
+        <img src="logo2.png" alt="Dana Flow Logo">
+        <div class="status">Belum Lunas</div>
+        <div class="loan-details">
+            <p>No Pinjaman <span>20261001182032UdBh</span></p>
+            <p>Jumlah Pinjaman <span>Rp 1.176.000</span></p>
+            <p>Tenor Pinjaman <span>7 Hari</span></p>
+            <p>Jumlah Yang harus dilunasi <span>Rp 2.100.000</span></p>
+        </div>
+        <div class="actions">
+            <a href="#" class="btn-extend">Saya Ingin Perpanjang</a>
+            <a href="pilihbankbayar.html" class="btn-pay">Melunasi</a>
+        </div>
+    </div>
+
+</body>
+</html>
