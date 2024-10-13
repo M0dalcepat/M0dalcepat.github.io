@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Pembayaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        /* Gaya untuk gambar di bagian atas */
+        .header-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 110%;
+            height: auto;
+            margin-bottom: 20px;
+            margin-left:-15px;
+        }
+
+        /* Box Kode Pembayaran */
+        .payment-code-box {
+            background-color: #ffeb3b;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .payment-code-box span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        /* Tombol Salin */
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background-color: #1976d2;
+        }
+
+        /* Informasi Pesanan */
+        .info-box {
+            background-color: #e0f7fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #000;
+        }
+
+        .info-box div {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-size: 14px; /* Ukuran teks lebih kecil */
+        }
+
+        .info-box div span {
+            font-size: 14px; /* Ukuran teks lebih kecil */
+        }
+
+        /* Panduan Pembayaran */
+        .guide-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .toggle-button img {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+
+        .guide-content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        /* CSS untuk notifikasi */
+        .popup-notification {
+            position: fixed;
+            bottom: 100%; /* Mengubah nilai bottom untuk menaikkan posisi */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1000;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-top:-10px;
+        }
+
+        .back-button span {
+            margin-left: 5px; /* Menambahkan jarak sedikit antara tanda < dan teks Back */
+        }
+    </style>
+</head>
+<body>
+      <a href="metode.html" class="back-button">
+        &lt;<span>Back</span>
+    </a><br>
+
+    <!-- Gambar di bagian atas -->
+    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhjAJ2PRvOeOsLBYtjRDFYDU6GegrXkr1AzH5QJjQnVLA1N-V2hbA7gECnkcJHqInctLvbFC3wGOTzVGR_K6V-FYUv9xNQWrXLz6EhAAaTZgkOKK948M9JeswF7cyLHELbh54QpAnDx2ZX_pSUoKFNEAKhFm8AkLRIJp7mfNXA2aiMQkBgSUcFJH43vajAR" alt="Gambar Pembayaran" class="header-image">
+
+    <!-- Kode Pembayaran -->
+    <div class="payment-code-box">
+        <span id="payment-code">8566661920026955</span>
+        <button class="copy-button" onclick="copyCode()">Salin</button>
+    </div>
+
+    <!-- Notifikasi Pop-up -->
+    <div id="popup-notification" class="popup-notification">
+        Kode berhasil disalin!
+    </div>
+
+    <!-- Informasi Pesanan -->
+    <div class="info-box">
+        <h2>Informasi Pemesanan</h2>
+        <div>
+            <span>Status Pinjaman</span>
+            <span>Belum Lunas</span>
+        </div>
+        <div>
+            <span>Jumlah Pelunasan</span>
+            <span>Rp 2.100.000</span>
+        </div>
+        <div>
+            <span>Virtual Acount</span>
+            <span>Bank BCA</span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <span>Periode Pembayaran Kembali</span>
+            <span>7 Hari</span>
+        </div>
+    </div>
+
+    <!-- Panduan Pembayaran -->
+    <div class="guide-box">
+        <div class="toggle-button" onclick="toggleGuide()">
+            <span>Panduan Pembayaran</span>
+            <img id="toggle-icon" src="https://img.icons8.com/ios-filled/50/000000/expand-arrow--v1.png"/>
+        </div>
+        <div class="guide-content" id="guide-content">
+            <p>Bank Lain ATM-M Banking</p>
+            <ul>
+                <li>Masukan Buka M-Banking</li>
+                <li>Masuk Menu Transfer</li>
+                <li>Pilih "Transfer BCA Virtual Acount"</li>
+                <li>Masukan Kode Pembayaran (8566xxx) Yang Sudah Di salin di atas</li>
+                <li>Masukan "Jumlah Pembayaran"</li>
+                <li>Lanjut</li>
+                <li>Konfirmasi Transfer</li>
+                <li>Masukan PIN</li>
+                <li>Pembayaran akan diproses</li>
+                <li>Selesai</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menyalin kode pembayaran dan memunculkan notifikasi
+        function copyCode() {
+            var code = document.getElementById("payment-code").textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                // Tampilkan notifikasi pop-up
+                var popup = document.getElementById("popup-notification");
+                popup.style.display = "block";
+                
+                // Hilangkan notifikasi setelah 3 detik
+                setTimeout(function() {
+                    popup.style.display = "none";
+                }, 3000); // 3 detik
+            }, function(err) {
+                alert("Gagal menyalin kode pembayaran.");
+            });
+        }
+
+        // Fungsi untuk membuka/tutup panduan pembayaran
+        function toggleGuide() {
+            var content = document.getElementById("guide-content");
+            var icon = document.getElementById("toggle-icon");
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                icon.src = "https://img.icons8.com/ios-filled/50/000000/collapse-arrow.png";
+            } else {
+                content.style.display = "none";
+                icon.src = "https://img.icons8.com/ios-filled/50/000000/expand-arrow--v1.png";
+            }
+        }
+    </script>
+
+</body>
+</html>
